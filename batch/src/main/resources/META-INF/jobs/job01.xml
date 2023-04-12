@@ -51,4 +51,11 @@
         </batch:step>
     </batch:job>
 
+    <batch:job id="simpleJob" job-repository="jobRepository">
+        <batch:step id="simpleJob.step01">
+            <batch:tasklet transaction-manager="jobTransactionManager"
+                           ref="simpleJobTasklet">
+        </batch:step>
+    </batch:job>
+
 </beans>
