@@ -1,0 +1,23 @@
+name: test
+on:
+  push:
+  pull_request:
+    types: [opened, reopened, review_requested, synchronize]
+    
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-java@v3
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Build
+        run: make
+
+      - name: Run
+        run: make run
